@@ -2,12 +2,14 @@
 
 one:
   title: MyString
+  subject_id: 1
   description: MyText
   image_url: MyString
   price: 9.99
 
 two:
   title: MyString
+  subject_id: 1
   description: MyText
   image_url: MyString
   price: 9.99
