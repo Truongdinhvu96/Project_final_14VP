@@ -15,7 +15,6 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
-    @subjects = Subject.all
   end
 
   # GET /products/1/edit
@@ -27,13 +26,11 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
-
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
-        @subjects = Subject.all
         format.html { render :new }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
@@ -72,6 +69,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:title, :subject_id, :description, :image_url, :price)
+      params.require(:product).permit(:title, :description, :image_url, :price)
     end
 end
