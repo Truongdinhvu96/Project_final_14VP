@@ -1,9 +1,19 @@
 class CreateSubjects < ActiveRecord::Migration[5.0]
-  def change
+  def self.up
     create_table :subjects do |t|
-      t.string :name
+      t.column :name, :string
 
       t.timestamps
     end
+
+    Subject.create :name => "Romance"
+    Subject.create :name => "Science"
+    Subject.create :name => "Culture"
+    Subject.create :name => "Comic"
+    Subject.create :name => "Education"
+  end
+
+  def self.down
+    drop_table :subjects
   end
 end
