@@ -1,5 +1,51 @@
-<h1>New User</h1>
+<head>
+  <style>
+  #playground-container
+{
+    height: 500px;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+body, html
+{
+    height: 100%;
+ 	background-repeat: no-repeat;
+ 	background:url();
+ 	font-family: 'Oxygen', sans-serif;
+	background-size: cover;
+}
 
+.main{
+ 	margin:auto auto;
+}
+
+.main-center{
+ 	margin: 50px auto;
+ 	max-width: 400px;
+
+}
+
+.Verdana{
+	font-family: 'Verdana';
+}
+
+.font-effect-anaglyph{
+	font-family: 'font-effect-fire-animation';
+}
+</style>
+</head>
+
+<h1>New User</h1>
+<div class="main-center">
+  <div class="cols-sm-10">
+    <div class="form-group">
+				<h5 style="color:red" align="center" class="font-effect-fire-animation"> <font size="12"> Sign up </font> </h5>
+				<label for="name" style="color:red">*You must fill it all</label><br><br>
+					<form id ="frm1" class="form-group" method="post" action="#" autocomplete="on">
 <%= render 'form', user: @user %>
 
 <%= link_to 'Back', users_path %>
+    </div>
+  </div>
+          </form>
+	</div>
