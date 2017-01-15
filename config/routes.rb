@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'store/index'
+
   get 'contact/index'
 
   get 'admin/index'
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
   resources :subjects
   resources :products
   resources :products
-  root :to => "products#index"
+  root :to => "store#index"
 
   get 'admin' => 'admin#index'
 

@@ -34,7 +34,7 @@ class ProductTest < ActiveSupport::TestCase
     end
 
     test "image url" do
-        url_hop_le = %w{ img.gif img.jpg img.png IMG.JPG IMG.Jpg http://a.b.c/x/y/z/img.gif }
+        url_hop_le = %w{ img.gif img.jpg img.png IMG.JPG IMG.Jpg http://a.b.c/x/y/z/img.gif http://a.b.c/x/y/z/img.jpg }
         url_khong_hop_le = %w{ img.doc img.gif/more img.gif.more }
 
         url_hop_le.each do |name|
@@ -45,7 +45,7 @@ class ProductTest < ActiveSupport::TestCase
             assert new_product(name).invalid?, "#{name} khong hop le"
         end
     end
-    
+
   fixtures :products
 
       test "title khong duoc trung" do
