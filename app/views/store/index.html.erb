@@ -30,14 +30,30 @@
 <% end %>
 
 <h1>Product List</h1>
-
+<p id="notice"><%= notice %></p>
+<% provide(:title, "Product") %>
+<div class="container">
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+</thead>
+<tbody>
 <% @products.each do |product| %>
+<tr>
     <div class="entry">
-        <%= image_tag(product.image_url) %>
-        <h3><%= product.title %></h3>
-        <%= sanitize(product.description) %>
-        <div class="price_line">
+        <td><%= image_tag(product.image_url) %></td>
+        <td><%= product.title %></td>
+        <td><%= sanitize(product.description) %></td>
+        <td><div class="price_line">
             <span class="price"><%= number_to_currency(product.price) %></span>
-        </div>
+        </div></td>
     </div>
 <% end %>
+</tr>
+</tbody>
+</table>
