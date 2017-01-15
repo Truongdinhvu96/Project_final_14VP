@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
 
   get 'templated/contactUS'
+
+  
   resources :users
   resources :orders
   resources :line_items
