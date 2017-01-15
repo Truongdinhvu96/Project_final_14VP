@@ -1,9 +1,57 @@
-<div class="depot_form">
-    #thông báo đăng nhập sai
+<head>
+<style>
+{
+  height: 500px;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.main{
+margin:auto auto;
+}
+
+.main-center{
+margin: 50px auto;
+max-width: 400px;
+
+}
+
+.Verdana{
+font-family: 'Verdana';
+}
+
+.font-effect-anaglyph{
+font-family: 'font-effect-fire-animation';
+}
+</style>
+</head>
+
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/products">Book Store</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/products">Home</a></li>
+        <li><a href="#">Books</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="/products/contact">Contact Us</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li class="active"><a href="/users/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </nav>
+<div>
+  <div class="main">
+  <div class="main-center">
+    <div class="cols-sm-10">
+      <div class="form-group">
+        <form id ="frm1" class="form-group" method="post" action="#" autocomplete="on">
     <% if flash[:alert] %>
         <p id="notice"><%= flash[:alert] %></p>
-    <% end %>
-    #form đăng nhập
+        <% end %>
     <% if notice %>
         <p id="notice"><%= notice %></p>
     <% end %>
@@ -27,3 +75,9 @@
         </fieldset>
     <% end %>
 </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</body>

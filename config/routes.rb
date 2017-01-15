@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'contact/index'
+
   get 'admin/index'
 
   get 'sessions/new'
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
 
   get 'sessions/destroy'
 
+  get 'templated/contactUS'
   resources :users
   resources :orders
   resources :line_items
