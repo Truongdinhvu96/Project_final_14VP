@@ -1,5 +1,59 @@
-<h1>New Product</h1>
+<head>
+  <style>
+  {
+    height: 500px;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+  .main{
+ 	margin:auto auto;
+}
 
-<%= render 'form', product: @product %>
+.main-center{
+ 	margin: 50px auto;
+ 	max-width: 400px;
+
+}
+
+.Verdana{
+	font-family: 'Verdana';
+}
+
+.font-effect-anaglyph{
+	font-family: 'font-effect-fire-animation';
+}
+</style>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/products">Book Store</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/products">Home</a></li>
+        <li><a href="#">Books</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/users/new"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/users/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </nav>
+<h1>New Product</h1>
+<div class="main">
+<div class="main-center">
+  <div class="cols-sm-10">
+    <div class="form-group">
+      <form id ="frm1" class="form-group" method="post" action="#" autocomplete="on">
+  <%= render 'form', product: @product %>
 
 <%= link_to 'Back', products_path %>
+</form>
+    </div>
+  </div>
+</div>
+</div>
+</body>
