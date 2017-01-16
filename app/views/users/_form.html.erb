@@ -1,5 +1,7 @@
 
-<div class="depot_form">
+
+<body>
+
 
     <%= form_for @user do |f| %>
         <% if @user.errors.any? %>
@@ -12,12 +14,15 @@
                 </ul>
             </div>
         <% end %>
-
+        <div class="main-center">
+          <div class="cols-sm-10">
+            <div class="form-group">
+        					<form id ="frm1" class="form-group" method="post" action="#" autocomplete="on">
         <fieldset>
         <legend>Enter User Details</legend>
 
         <div>
-            <%= f.label :name, 'Name' %>:
+            <%= f.label :name %>:
             <%= f.text_field :name, :size => 40 %>
         </div>
 
@@ -30,10 +35,15 @@
             <%= f.label :password_confirmation, 'Confirm' %>:
             <%= f.password_field :password_confirmation, :size => 40 %>
         </div>
+</form>
+</div>
+</div>
 
-        <div class="actions">
+        <div>
             <%= f.submit %>
         </div>
         </fieldset>
     <% end %>
-</div>
+    </div>
+
+</body>

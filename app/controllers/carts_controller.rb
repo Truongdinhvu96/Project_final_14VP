@@ -1,20 +1,21 @@
 class CartsController < ApplicationController
+  layout 'application'
+  skip_before_filter :authorize, :only => [:create, :update, :destroy]
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
   # GET /carts
   # GET /carts.json
   def index
-    def index
-        @carts = []
-        if session[:cart_id] != nil
-            @carts << Cart.find_by_id(session[:cart_id])
-        end
-    end
+    @carts = Cart.all
   end
 
   # GET /carts/1
   # GET /carts/1.json
-  def show
+  def index
+        @carts = []
+        if session[:cart_id] != nil
+            @carts << Cart.find_by_id(session[:cart_id])
+        end
   end
 
   # GET /carts/new
@@ -62,8 +63,9 @@ class CartsController < ApplicationController
     @cart = current_cart
     @cart.destroy
     session[:cart_id] = nil
+
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
+      format.html { redirect_to '/' }
       format.json { head :no_content }
     end
   end
