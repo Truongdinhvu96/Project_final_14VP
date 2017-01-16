@@ -1,81 +1,24 @@
-<head>
-<style>
-{
-  height: 500px;
-  overflow: hidden;
-  -webkit-overflow-scrolling: touch;
-}
-.main{
-margin:auto auto;
-}
+<p id="notice"><%= notice %></p>
 
-.main-center{
-margin: 50px auto;
-max-width: 400px;
+<p>
+  <strong>Title:</strong>
+  <%= @product.title %>
+</p>
 
-}
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
 
-.Verdana{
-font-family: 'Verdana';
-}
+<p>
+  <strong>Image url:</strong>
+  <%= @product.image_url %>
+</p>
 
-.font-effect-anaglyph{
-font-family: 'font-effect-fire-animation';
-}
-</style>
-</head>
-<body>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/products">Book Store</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="/products">Home</a></li>
-        <li><a href="#">Books</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="/contact/index">Contact Us</a></li>
-        <li><a href="/searches/new"> Search</a></li>
-      </ul>
-    </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/carts"> Carts</a></li>
-        <li><a href="/store"> Logout</a></li>
-      </ul>
-    </div>
-  </nav>
-  <div class="container">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Image url</th>
-        <th>Price</th>
-
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @products.each do |product| %>
-        <tr>
-          <td><%= product.title %></td>
-          <td><%= product.description %></td>
-          <td><%= product.image_url %></td>
-          <td><%= product.price %></td>
-          <td><%= link_to 'Show', product %></td>
-          <td><%= link_to 'Edit', edit_product_path(product) %></td>
-          <td><%= button_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  </div>
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
-</form>
-</div>
-</div>
-</div>
-</body>
