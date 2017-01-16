@@ -1,74 +1,81 @@
-
 <head>
-  <title>indexProduct</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
+<style>
+{
+  height: 500px;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.main{
+margin:auto auto;
+}
 
+.main-center{
+margin: 50px auto;
+max-width: 400px;
+
+}
+
+.Verdana{
+font-family: 'Verdana';
+}
+
+.font-effect-anaglyph{
+font-family: 'font-effect-fire-animation';
+}
+</style>
+</head>
 <body>
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/store/index">Book Store</a>
+        <a class="navbar-brand" href="/products">Book Store</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/store/index">Home</a></li>
-        <li><a href="#">Books</a></li>
-        <li><a href="#">News</a></li>
-        <li><a href="/contact/index">Contact Us</a></li>
+        <li class="active"><a href="/products">Home</a></li>
+        <li><a href="https://www.amazon.com/books-used-books-textbooks/b?ie=UTF8&node=283155">Books</a></li>
+        <li><a href="https://www.google.com.vn/search?q=news&oq=news&aqs=chrome..69i57.1334j0j7&sourceid=chrome&ie=UTF-8">News</a></li>
+        <li><a href="/contacts">Contact Us</a></li>
+        <li><a href="/searches/new"> Search</a></li>
       </ul>
-      <form class="navbar-form navbar-left">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search">
-        <div class="input-group-btn">
-          <button class="btn btn-default" type="submit">
-            <i class="glyphicon glyphicon-search"></i>
-          </button>
-        </div>
-      </div>
     </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/users/new"> Sign Up</a></li>
-        <li><a href="/sessions/new">Login</a></li>
-        <li><a href="/carts/index"> Carts</a></li>
+        <li><a href="/carts"> Carts</a></li>
+        <li><a href="/store"> Logout</a></li>
       </ul>
     </div>
   </nav>
-  <p id="notice"><%= notice %></p>
-  <% provide(:title, "Product") %>
-  <h1>Products</h1>
-<div class="container">
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image url</th>
-      <th>Price</th>
+<div id="product_list">
+    <h1>Products</h1>
 
-    </tr>
-  </thead>
+    <div class="container">
+  <table class="table">
+    <thead>
+      <tr class="info">
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image url</th>
+        <th colspan="4">Price</th>
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.title %></td>
-        <td><%= product.description %></td>
-        <td><%= product.image_url %></td>
-        <td><%= product.price %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= button_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
+    </thead>
 
-<br>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr class="active">
+          <td><%= product.title %></td>
+          <td><%= product.description %></td>
+          <td><%= image_tag(product.image_url, :class => 'list_image') %></td>
+          <td><%= product.price %></td>
+          <td><%= link_to 'Show', product %></td>
+          <td><%= link_to 'Edit', edit_product_path(product) %></td>
+          <td><%= button_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
 
-<%= link_to 'New Product', new_product_path %>
-</body
+  <br>
+  <%= link_to "Advanced Search", new_search_path %>
+  <%= link_to 'New Product', new_product_path %>
+</body>

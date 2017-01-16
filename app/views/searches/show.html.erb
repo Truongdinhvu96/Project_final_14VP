@@ -1,0 +1,42 @@
+<h1>Search Result</h1>
+
+<p><%= link_to 'Back', new_search_path %></p>
+
+
+
+<div class="container">
+<table class="table">
+<thead>
+  <tr class="info">
+    <th>Title</th>
+    <th>Description</th>
+    <th>Image url</th>
+    <th colspan="4">Price</th>
+
+  </tr>
+</thead>
+
+<tbody>
+  <% if @search.search_products.empty? %>
+
+  <p>No Record Found</p>
+
+  <% else %>
+
+  <% @search.search_products.each do |c| %>
+  <br>
+  <% @search.search_products.each do |c| %>
+    <tr class="active">
+      <td><%= c.title %></td>
+      <td><%= c.description %></td>
+      <td><%= image_tag(c.image_url, :class => 'list_image') %></td>
+      <td><%= c.price %></td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+</div>
+
+<% end %>
+
+<% end %>
