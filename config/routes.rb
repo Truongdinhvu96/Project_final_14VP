@@ -1,39 +1,49 @@
-Rails.application.routes.draw do
-<<<<<<< HEAD
-=======
-  get 'store/index'
+  Rails.application.routes.draw do
 
-  get 'contact/index'
+  resources :contacts
+
+  get 'contacts/report'
 
   get 'admin/index'
 
   get 'sessions/new'
 
+  get 'contacts/show'
+
   get 'sessions/create'
 
   get 'sessions/destroy'
 
-  get 'templated/contactUS'
+  resources :searches
 
->>>>>>> dcd1601f0a7709c6651902bea6d66cead5d0a63a
-  
   resources :users
   resources :orders
   resources :line_items
   resources :carts
-  resources :products
-  resources :products
-  resources :subjects
-  resources :products
-  resources :products
+  get 'store/index'
+
+  resources :products do
+        get :who_bought, :on => :member
+  end
   root :to => "store#index"
 
   get 'admin' => 'admin#index'
 
-controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
-end
+  controller :sessions do
+      get 'login' => :new
+      post 'login' => :create
+      delete 'logout' => :destroy
+  end
+
+  scope '(:locale)' do
+        resources :users
+        resources :orders
+        resources :line_items
+        resources :carts
+        resources :products do
+            get :who_bought, :on => :member
+        end
+        root :to => 'store#index', :as => 'store'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
