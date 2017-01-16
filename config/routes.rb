@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
+=======
   get 'store/index'
 
   get 'contact/index'
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
 
   get 'templated/contactUS'
 
+>>>>>>> dcd1601f0a7709c6651902bea6d66cead5d0a63a
   
   resources :users
   resources :orders

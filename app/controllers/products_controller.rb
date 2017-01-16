@@ -1,16 +1,22 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :delete]
+  layout 'application'
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :authorize
 
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
+    if params[:search]
+    @products = Product.search(params[:search]).order("created_at DESC")
+  else
+    @products = Product.all.order('created_at DESC')
   end
-  
+  end
+
   # GET /products/1
   # GET /products/1.json
   def show
-    @products = Product.find(params[:id])
   end
 
   # GET /products/new
@@ -56,7 +62,7 @@ class ProductsController < ApplicationController
   # DELETE /products/1.json
   def destroy
     @product = Product.destroy(params[:id])
-    redirect_to products_url, alert: "#{@product.title} waw delete"
+    redirect_to products_url, alert: "#{@product.title} was delete"
   end
 
   private
@@ -69,4 +75,12 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:title, :description, :image_url, :price)
     end
+end
+
+def who_bought
+        @product = Product.find(params[:id])
+        respond_to do |format|
+            format.atom
+            format.xml { render :xml => @product }
+        end
 end
