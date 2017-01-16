@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
+=======
+  get 'store/index'
+
+  get 'contact/index'
+
+  get 'admin/index'
+
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  get 'templated/contactUS'
+
+>>>>>>> dcd1601f0a7709c6651902bea6d66cead5d0a63a
   
   resources :users
   resources :orders
