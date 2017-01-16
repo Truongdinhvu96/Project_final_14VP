@@ -1,17 +1,5 @@
 Rails.application.routes.draw do
-  get 'store/index'
-
-  get 'contact/index'
-
-  get 'admin/index'
-
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
-  get 'templated/contactUS'
+  
   resources :users
   resources :orders
   resources :line_items

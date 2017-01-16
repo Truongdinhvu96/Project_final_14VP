@@ -1,9 +1,6 @@
 
 <body>
-  <fieldset>
-    <legend>Enter Products Details</legend>
-  <div class="container">
-    <form class="form-horizontal">
+
 <%= form_for(product) do |f| %>
   <% if product.errors.any? %>
     <div id="error_explanation">
@@ -16,7 +13,10 @@
       </ul>
     </div>
   <% end %>
-
+  <fieldset>
+    <legend>Enter Products Details</legend>
+  <div class="container">
+    <form class="form-horizontal">
   <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -40,8 +40,8 @@
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
-</fieldset>
+  <% end %>
 </form>
 </div>
+</fieldset>
 </body>

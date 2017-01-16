@@ -1,16 +1,19 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html>
+
   <head>
-    <title>BookStore</title>
-    <%= csrf_meta_tags %>
+<title>BookStore</title>
+<%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'app', media: 'all', 'data-turbolinks-track'=> true %>
-    <%= javascript_include_tag 'app', 'data-turbolinks-track'=> true %>
-  </head>
+<%= stylesheet_link_tag    'app', media: 'all', 'data-turbolinks-track'=> true %>
+<%= javascript_include_tag 'app', 'data-turbolinks-track'=> true %>
+</head>
 
-  <body>
-    <%= yield %>
-    <%= render 'templated/navigation' %>
-  </body>
+<body>
+<%= yield %>
+<%= render 'templated/navigation' %>
+</body>
+
+
 </html>
-<!-- app/views/shared/_navigation.html.erb -->
